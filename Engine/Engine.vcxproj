@@ -15,9 +15,11 @@
     <ClInclude Include="src\Henio\Application.h" />
     <ClInclude Include="src\Henio\Core.h" />
     <ClInclude Include="src\Henio\EntryPoint.h" />
+    <ClInclude Include="src\Henio\Logger.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Henio\Application.cpp" />
+    <ClCompile Include="src\Henio\Logger.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

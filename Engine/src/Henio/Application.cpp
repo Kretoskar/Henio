@@ -1,5 +1,7 @@
 #include "Application.h"
 
+#include "Logger.h"
+
 namespace Henio
 {
     Application::Application()
@@ -12,6 +14,5 @@ namespace Henio
 
     void Application::Run()
     {
-        while(true);
     }
 }
