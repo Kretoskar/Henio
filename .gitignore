@@ -3,6 +3,7 @@
 bin/
 bin-int/
 .idea/
+Game/log
 
 # Files
 *.user

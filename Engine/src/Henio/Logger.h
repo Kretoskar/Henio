@@ -2,6 +2,7 @@
 
 #include "Core.h"
 
+#include <iostream>
 #include <cstdio>
 #include <ostream>
 
@@ -33,12 +34,24 @@ namespace Henio
         template <typename... Args>
         static void Log(unsigned int logLevel, Args ... args)
         {
-            if (logLevel <= logLevel) {
-                std::printf(args ...);
-                std::printf("\n");
+            static bool bInitialized = false;
+            if (!bInitialized)
+            {
+                std::ofstream clearFile("log/log.txt");
+                bInitialized = true;
+            }
+
+            if (logLevel <= logLevel) 
+            {
+                char buffer[100];
+                sprintf_s(buffer, args ...);
+                std::cout << buffer << std::endl;
                 /* force output, i.e. for Eclipse */
                 std::fflush(stdout);
-
+               
+                std::ofstream ofile("log/log.txt", std::ios::app);
+                ofile << buffer << '\n';
+                ofile.close();
             }
         }
     
