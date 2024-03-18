@@ -4,6 +4,8 @@ bin/
 bin-int/
 .idea/
 Game/log
+Game/Engine.dll
+
 
 # Files
 *.user
