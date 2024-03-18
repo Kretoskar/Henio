@@ -32,38 +32,42 @@ namespace Henio
     public:
         /* log if input log level is equal or smaller to log level set */
         template <typename... Args>
-        static void Log(unsigned int logLevel, Args ... args)
+        static void Log(unsigned int inLogLevel, Args ... args)
         {
-            static bool bInitialized = false;
-            if (!bInitialized)
+            if (logToFile)
             {
-                std::ofstream clearFile("log/log.txt");
-                bInitialized = true;
+                static bool bInitialized = false;
+                if (!bInitialized)
+                {
+                    std::ofstream clearFile("log/log.txt");
+                    bInitialized = true;
+                }
             }
 
-            if (logLevel <= logLevel) 
+            if (inLogLevel <= logLevel) 
             {
                 char buffer[100];
                 sprintf_s(buffer, args ...);
                 std::cout << buffer << std::endl;
-                /* force output, i.e. for Eclipse */
-                std::fflush(stdout);
                
-                std::ofstream ofile("log/log.txt", std::ios::app);
-                ofile << buffer << '\n';
-                ofile.close();
+                if (logToFile)
+                {
+                    std::ofstream ofile("log/log.txt", std::ios::app);
+                    ofile << buffer << '\n';
+                    ofile.close();
+                }
             }
         }
     
         static void SetLogLevel(unsigned int inLogLevel)
         {
-            inLogLevel <= 9 ? logLevel = inLogLevel :
-            logLevel = 9;
+            logLevel = inLogLevel;
         }
     
         static unsigned int logLevel;
         static unsigned int logError;
         static unsigned int logWarning;
         static unsigned int logMessage;
+        static bool logToFile;
     };
 }
