@@ -15,10 +15,12 @@
     <ClInclude Include="src\Henio\Application.h" />
     <ClInclude Include="src\Henio\Core.h" />
     <ClInclude Include="src\Henio\EntryPoint.h" />
+    <ClInclude Include="src\Henio\Events\Event.h" />
     <ClInclude Include="src\Henio\Logger.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Henio\Application.cpp" />
+    <ClCompile Include="src\Henio\Events\Event.cpp" />
     <ClCompile Include="src\Henio\Logger.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -57,6 +59,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)bin\$(Configuration)-$(Platform)\$(ProjectName)\</OutDir>
     <IntDir>$(SolutionDir)bin-int\$(Configuration)-$(Platform)\$(ProjectName)\</IntDir>
+    <IncludePath>C:\_Projekty\Henio\Engine\src;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)bin\$(Configuration)-$(Platform)\$(ProjectName)\</OutDir>

@@ -6,7 +6,7 @@
 extern Henio::Application* Henio::CreateApplication();
 
 void main(int argc, char** argv)
-{	
+{
 	auto app = Henio::CreateApplication();
 	//app->Run();
 	delete app;
